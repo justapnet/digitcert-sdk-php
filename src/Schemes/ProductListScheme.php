@@ -1,11 +1,18 @@
 <?php
 
 
-namespace DigitCert\Schemes;
+namespace DigitCert\Sdk\Schemes;
 
 
-use DigitCert\Scheme\AbstractScheme;
+use DigitCert\Sdk\Schemes\ProductList\ProductListItem;
 
+/**
+ * Class ProductListScheme
+ *
+ * @property ProductListItem[] $result
+ *
+ * @package DigitCert\Sdk\Schemes
+ */
 class ProductListScheme extends AbstractScheme
 {
 }

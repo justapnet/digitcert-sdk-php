@@ -15,12 +15,12 @@
     },
     "autoload": {
         "psr-4": {
-            "DigitCert\\": "src/"
+            "DigitCert\\Sdk\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "DigitCert\\Test\\": "tests/"
+            "DigitCert\\Sdk\\Test\\": "tests/"
         }
     },
     "license": "MIT",

@@ -1,15 +1,15 @@
 <?php
 
 
-namespace DigitCert\Requests\Product;
+namespace DigitCert\Sdk\Requests\Product;
 
 
-use DigitCert\Requests\AbstractRequest;
+use DigitCert\Sdk\Requests\AbstractRequest;
 
 /**
  * 获取产品列表
  *
- * @package DigitCert\Requests\Product
+ * @package DigitCert\Sdk\Requests\Product
  */
 class ProductListRequest extends AbstractRequest
 {

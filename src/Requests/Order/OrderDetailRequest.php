@@ -1,10 +1,10 @@
 <?php
 
 
-namespace DigitCert\Requests\Order;
+namespace DigitCert\Sdk\Requests\Order;
 
 
-use DigitCert\Requests\AbstractRequest;
+use DigitCert\Sdk\Requests\AbstractRequest;
 
 class OrderDetailRequest extends AbstractRequest
 {

@@ -1,15 +1,15 @@
 <?php
 
 
-namespace DigitCert\Requests\User;
+namespace DigitCert\Sdk\Requests\User;
 
 
-use DigitCert\Requests\AbstractRequest;
+use DigitCert\Sdk\Requests\AbstractRequest;
 
 /**
  * 获取代理商信息
  *
- * @package DigitCert\Requests\User
+ * @package DigitCert\Sdk\Requests\User
  */
 class UserInfoRequest extends AbstractRequest
 {

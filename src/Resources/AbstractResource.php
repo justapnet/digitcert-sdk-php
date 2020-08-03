@@ -1,9 +1,9 @@
 <?php
 
-namespace DigitCert\Resources;
+namespace DigitCert\Sdk\Resources;
 
-use DigitCert\Client;
-use DigitCert\Requests\AbstractRequest;
+use DigitCert\Sdk\Client;
+use DigitCert\Sdk\Requests\AbstractRequest;
 
 abstract class AbstractResource
 {
@@ -20,13 +20,13 @@ abstract class AbstractResource
         $this->client = $client;
     }
 
-    public function buildApiPath(string $path)
+    protected function buildApiPath(string $path)
     {
         $s = '%s/%s/%s';
         return sprintf($s, $this->prefix, $this->version, ltrim($path, '/'));
     }
 
-    public function callApi($path, AbstractRequest $request, $method = 'get')
+    protected function callApi($path, AbstractRequest $request, $method = 'get')
     {
         return $this->client->{$method}($this->buildApiPath($path), $request->toArray());
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace DigitCert\Exceptions;
+namespace DigitCert\Sdk\Exceptions;
 
 use Exception;
 

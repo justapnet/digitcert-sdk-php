@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DigitCert\Response\Interfaces;
+namespace DigitCert\Sdk\Response\Interfaces;
 
 
 interface BaseResponse

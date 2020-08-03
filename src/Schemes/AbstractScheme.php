@@ -1,7 +1,8 @@
 <?php
 
-namespace DigitCert\Scheme;
+namespace DigitCert\Sdk\Schemes;
 
-abstract class AbstractScheme
-{
-}
+use ArrayAccess;
+use ArrayObject;
+
+abstract class AbstractScheme {}

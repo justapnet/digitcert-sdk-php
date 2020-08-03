@@ -1,14 +1,14 @@
 <?php
 
 
-namespace DigitCert\Resources;
+namespace DigitCert\Sdk\Resources;
 
 
-use DigitCert\Requests\Order\AddSanOrderRequest;
-use DigitCert\Requests\Order\NewOrderRequest;
-use DigitCert\Requests\Order\OrderDetailRequest;
-use DigitCert\Requests\Order\OrderListRequest;
-use DigitCert\Requests\Order\OrderRefundRequest;
+use DigitCert\Sdk\Requests\Order\AddSanOrderRequest;
+use DigitCert\Sdk\Requests\Order\NewOrderRequest;
+use DigitCert\Sdk\Requests\Order\OrderDetailRequest;
+use DigitCert\Sdk\Requests\Order\OrderListRequest;
+use DigitCert\Sdk\Requests\Order\OrderRefundRequest;
 
 class Order extends AbstractResource
 {

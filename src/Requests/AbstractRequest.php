@@ -1,6 +1,6 @@
 <?php
 
-namespace DigitCert\Requests;
+namespace DigitCert\Sdk\Requests;
 
 use ArrayAccess;
 use ArrayObject;

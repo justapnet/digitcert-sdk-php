@@ -1,10 +1,10 @@
 <?php
 
 
-namespace DigitCert\Resources;
+namespace DigitCert\Sdk\Resources;
 
 
-use DigitCert\Requests\User\UserInfoRequest;
+use DigitCert\Sdk\Requests\User\UserInfoRequest;
 
 class User extends AbstractResource
 {

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace DigitCert\Requests\Order;
+namespace DigitCert\Sdk\Requests\Certificate;
 
 
-use DigitCert\Requests\AbstractRequest;
+use DigitCert\Sdk\Requests\AbstractRequest;
 
 class CertDetailRequest extends AbstractRequest
 {

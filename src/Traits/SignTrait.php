@@ -1,6 +1,6 @@
 <?php
 
-namespace DigitCert\Traits;
+namespace DigitCert\Sdk\Traits;
 
 /**
  * 签名部分

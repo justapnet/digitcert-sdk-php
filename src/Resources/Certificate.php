@@ -1,14 +1,14 @@
 <?php
 
 
-namespace DigitCert\Resources;
+namespace DigitCert\Sdk\Resources;
 
 
-use DigitCert\Requests\Certificate\CertReissueRequest;
-use DigitCert\Requests\Certificate\ReValidationRequest;
-use DigitCert\Requests\Certificate\UpdateDcvRequest;
-use DigitCert\Requests\Order\CertDetailRequest;
-use DigitCert\Requests\Order\CertListRequest;
+use DigitCert\Sdk\Requests\Certificate\CertReissueRequest;
+use DigitCert\Sdk\Requests\Certificate\ReValidationRequest;
+use DigitCert\Sdk\Requests\Certificate\UpdateDcvRequest;
+use DigitCert\Sdk\Requests\Order\CertDetailRequest;
+use DigitCert\Sdk\Requests\Order\CertListRequest;
 
 class Certificate extends AbstractResource
 {

@@ -53,7 +53,7 @@ trait SignTrait
 
         date_default_timezone_set('PRC');
 
-        $parameters['accessKeyId'] = $accessKeyId;
+        $parameters['access_key_id'] = $accessKeyId;
 
         if (!isset($parameters['nonce'])) {
             $parameters['nonce'] = uniqid();

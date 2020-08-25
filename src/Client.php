@@ -5,6 +5,7 @@ namespace DigitCert\Sdk;
 use DigitCert\Sdk\Exceptions\DoNotHavePrivilegeException;
 use DigitCert\Sdk\Exceptions\InsufficientBalanceException;
 use DigitCert\Sdk\Exceptions\RequestException;
+use DigitCert\Sdk\Resources\Certificate;
 use DigitCert\Sdk\Resources\Order;
 use DigitCert\Sdk\Resources\Product;
 use DigitCert\Sdk\Response\Interfaces\BaseResponse;
@@ -14,6 +15,7 @@ use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RequestOptions;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 
 use function GuzzleHttp\json_decode;
@@ -43,6 +45,11 @@ class Client
      * @var Product
      */
     public $product;
+
+    /**
+     * @var Certificate $certificate
+     */
+    public $certificate;
 
     /**
      * @var Order
@@ -95,6 +102,7 @@ class Client
 
         $this->product = new Product($this);
         $this->order = new Order($this);
+        $this->certificate = new Certificate($this);
 
         $this->connectTimeout = $connectTimeout;
         $this->readTimeout = $readTimeout;
@@ -136,8 +144,29 @@ class Client
                 throw new RequestException('服务器错误');
             }
 
-            $json = json_decode($response->getBody()->__toString());
-            return $json;
+            $content = $response->getBody()->getContents();
+
+            Log::info('response', [
+                $uri,
+                $response->getStatusCode(),
+                $method,
+                [
+                    ($method == 'get' ? 'query' : RequestOptions::JSON) => $parameters,
+                ],
+                $content
+            ]);
+
+            try {
+                return \json_decode($content);
+            } catch (\Exception $e) {
+                Log::error('请求上游服务器出错了', [
+                    $uri, $method, [
+                        ($method == 'get' ? 'query' : RequestOptions::JSON) => $parameters,
+                    ], $content
+                ]);
+
+                throw $e;
+            }
         } catch (ClientException $e) {
             // 若不存在 Laravel's ValidationException 类，或者版本太低没有 withMessages 方法，抛出Guzzle的异常
             if (!class_exists(ValidationException::class) || !method_exists(ValidationException::class, 'withMessages')) {

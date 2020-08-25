@@ -4,12 +4,13 @@
 namespace DigitCert\Sdk\Resources;
 
 
+use DigitCert\Sdk\Requests\Certificate\AddSanRequest;
 use DigitCert\Sdk\Requests\Certificate\CertCreateRequest;
-use DigitCert\Sdk\Requests\Certificate\CertReissueRequest;
+use DigitCert\Sdk\Requests\Certificate\ReissueCertRequest;
 use DigitCert\Sdk\Requests\Certificate\ReValidationRequest;
 use DigitCert\Sdk\Requests\Certificate\UpdateDcvRequest;
-use DigitCert\Sdk\Requests\Order\CertDetailRequest;
-use DigitCert\Sdk\Requests\Order\CertListRequest;
+use DigitCert\Sdk\Requests\Certificate\CertDetailRequest;
+use DigitCert\Sdk\Requests\Certificate\CertListRequest;
 
 class Certificate extends AbstractResource
 {
@@ -28,7 +29,7 @@ class Certificate extends AbstractResource
         return $this->callApi(sprintf('/order/%d/cert', $orderNo), $request, 'post');
     }
 
-    public function reissue(int $orderNo, CertReissueRequest $request)
+    public function reissue(int $orderNo, ReissueCertRequest $request)
     {
         return $this->callApi(sprintf('/order/%d/cert/reissue', $orderNo), $request, 'post');
     }
@@ -43,7 +44,7 @@ class Certificate extends AbstractResource
         return $this->callApi(sprintf('/order/%d/cert/revalidation', $orderNo), $request, 'post');
     }
 
-    public function addSan(int $orderNo, ReValidationRequest $request)
+    public function addSan(int $orderNo, AddSanRequest $request)
     {
         return $this->callApi(sprintf('/order/%d/cert/add-san', $orderNo), $request, 'post');
     }

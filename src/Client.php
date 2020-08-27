@@ -145,7 +145,6 @@ class Client
             }
 
             $content = $response->getBody()->getContents();
-
             Log::info('response', [
                 $uri,
                 $response->getStatusCode(),
@@ -157,7 +156,11 @@ class Client
             ]);
 
             try {
-                return \json_decode($content);
+                $response = \json_decode($content);
+                if (!$response)
+                    throw new RequestException('返回内容错误');
+
+                return $response;
             } catch (\Exception $e) {
                 Log::error('请求上游服务器出错了', [
                     $uri, $method, [
@@ -184,6 +187,8 @@ class Client
             }
 
             throw ValidationException::withMessages($data['message']);
+        } catch (\Exception $e) {
+            dd($e);
         }
     }
 }

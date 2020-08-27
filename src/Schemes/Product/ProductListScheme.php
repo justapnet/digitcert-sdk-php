@@ -1,7 +1,7 @@
 <?php
 
 
-namespace DigitCert\Sdk\Schemes;
+namespace DigitCert\Sdk\Schemes\Product;
 
 
 use DigitCert\Sdk\Schemes\ProductList\ProductListItem;

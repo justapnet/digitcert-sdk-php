@@ -161,7 +161,7 @@ class Client
                     throw new RequestException('返回内容错误');
 
                 return $response;
-            } catch (\Exception $e) {
+            } catch (\Throwable $e) {
                 Log::error('请求上游服务器出错了', [
                     $uri, $method, [
                         ($method == 'get' ? 'query' : RequestOptions::JSON) => $parameters,
@@ -187,7 +187,7 @@ class Client
             }
 
             throw ValidationException::withMessages($data['message']);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             dd($e);
         }
     }

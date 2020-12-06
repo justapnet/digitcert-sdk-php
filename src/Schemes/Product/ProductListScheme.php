@@ -4,7 +4,8 @@
 namespace DigitCert\Sdk\Schemes\Product;
 
 
-use DigitCert\Sdk\Schemes\ProductList\ProductListItem;
+use DigitCert\Sdk\Schemes\AbstractScheme;
+use DigitCert\Sdk\Schemes\Product\ProductList\ProductListItem;
 
 /**
  * Class ProductListScheme

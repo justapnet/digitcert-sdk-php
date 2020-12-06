@@ -5,7 +5,7 @@ namespace DigitCert\Sdk\Schemes\Product;
 
 
 use DigitCert\Sdk\Schemes\AbstractScheme;
-use DigitCert\Sdk\Schemes\BrandList\BrandListItem;
+use DigitCert\Sdk\Schemes\Product\BrandList\BrandListItem;
 
 /**
  * Class BrandListScheme

@@ -28,10 +28,11 @@ abstract class AbstractResource
 
     protected function callApi($path, AbstractRequest $request, $method = 'get')
     {
-        \Log::info('$this->buildApiPath($path)', [
-            $this->buildApiPath($path),
-            $request->toArray()
-        ]);
+// just for laravel
+//        \Log::info('$this->buildApiPath($path)', [
+//            $this->buildApiPath($path),
+//            $request->toArray()
+//        ]);
 
         return $this->client->{$method}($this->buildApiPath($path), $request->toArray());
     }

@@ -10,14 +10,12 @@ use DigitCert\Sdk\Resources\Order;
 use DigitCert\Sdk\Resources\Product;
 use DigitCert\Sdk\Response\Interfaces\BaseResponse;
 use DigitCert\Sdk\Traits\SignTrait;
-
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
-
 use function GuzzleHttp\json_decode;
 
 /**

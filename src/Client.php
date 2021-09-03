@@ -79,19 +79,19 @@ class Client
      */
     protected $readTimeout;
 
-    public function __construct($accessKeyId, $accessKeySecret, $env = self::ENV_PROD, $connectTimeout = 5, $readTimeout = 15)
+    public function __construct($accessKeyId, $accessKeySecret, $env = self::ENV_PROD, $connectTimeout = 5, $readTimeout = 15, $option = [])
     {
         switch ($env) {
             case self::ENV_DEV:
-                $apiOrigin = self::ORIGIN_API_DEV;
+                $apiOrigin = $option[self::ENV_DEV] ?? self::ORIGIN_API_DEV;
                 break;
 
             case self::ENV_STG:
-                $apiOrigin = self::ORIGIN_API_STAGING;
+                $apiOrigin = $option[self::ENV_STG] ?? self::ORIGIN_API_STAGING;
                 break;
 
             default:
-                $apiOrigin = self::ORIGIN_API;
+                $apiOrigin = $option[self::ENV_PROD] ?? self::ORIGIN_API;
         }
 
         $this->accessKeyId = $accessKeyId;
@@ -186,7 +186,7 @@ class Client
 
             throw ValidationException::withMessages($data['message']);
         } catch (\Throwable $e) {
-            dd($e);
+            throw $e;
         }
     }
 }

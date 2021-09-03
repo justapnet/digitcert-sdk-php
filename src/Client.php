@@ -10,6 +10,7 @@ use DigitCert\Sdk\Resources\Order;
 use DigitCert\Sdk\Resources\Product;
 use DigitCert\Sdk\Response\Interfaces\BaseResponse;
 use DigitCert\Sdk\Traits\SignTrait;
+use Exception;
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;
@@ -25,11 +26,6 @@ use function GuzzleHttp\json_decode;
 class Client
 {
     use SignTrait;
-
-    const ORIGIN_API = 'https://www.digitcert.com.cn';
-    const ORIGIN_API_STAGING = 'https://www.digitcert.com.cn';
-    const ORIGIN_API_DEV = 'http://dev.digitalcert.test';
-
     const CODE_EXCEPTION_MAP = [
         'INSUFFICIENT_BALANCE' => InsufficientBalanceException::class,
         'DO_NOT_HAVE_RIVILEGE' => DoNotHavePrivilegeException::class,
@@ -83,15 +79,18 @@ class Client
     {
         switch ($env) {
             case self::ENV_DEV:
-                $apiOrigin = $option[self::ENV_DEV] ?? self::ORIGIN_API_DEV;
+                $apiOrigin = $option[self::ENV_DEV] ?? '';
                 break;
 
             case self::ENV_STG:
-                $apiOrigin = $option[self::ENV_STG] ?? self::ORIGIN_API_STAGING;
+                $apiOrigin = $option[self::ENV_STG] ?? '';
                 break;
 
             default:
-                $apiOrigin = $option[self::ENV_PROD] ?? self::ORIGIN_API;
+                $apiOrigin = $option[self::ENV_PROD] ?? '';
+        }
+        if (empty($apiOrigin)) {
+            throw new Exception("Origin Api can not be empty!");
         }
 
         $this->accessKeyId = $accessKeyId;

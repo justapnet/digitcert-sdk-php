@@ -1,0 +1,29 @@
+{
+    "name": "digitcert/digitcert-sdk-php",
+    "description": "The php sdk for DigitCert <https://www.digitcert.com.cn> Infrastructure.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "digitcert",
+            "email": "code@digitcert.com.cn"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "DigitCert\\Sdk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DigitCert\\Sdk\\Test\\": "tests/"
+        }
+    },
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require-dev": {
+    }
+}
